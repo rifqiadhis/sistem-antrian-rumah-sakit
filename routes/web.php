@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PasienController;
+use App\Http\Controllers\DokterController;
+use App\Http\Controllers\JadwalPraktekController;
+use App\Http\Controllers\AntrianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('pasien', PasienController::class);
+Route::resource('dokter', DokterController::class);
+Route::resource('jadwal_praktek', JadwalPraktekController::class);
+Route::resource('antrian', AntrianController::class);
