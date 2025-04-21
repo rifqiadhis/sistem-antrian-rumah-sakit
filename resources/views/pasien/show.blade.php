@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Detail Pasien</h1>
+    <h1 class="h3 text-gray-800 mb-0">Detail Pasien</h1>
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">{{ $pasien->nama }}</h5>

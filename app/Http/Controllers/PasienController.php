@@ -9,9 +9,8 @@ class PasienController extends Controller
 {
     public function index()
     {
-        // $pasien = Pasien::all();
-        // return view('pasien.index', compact('pasien'));
-        return view('pasien.index');
+        $pasien = Pasien::all();
+        return view('pasien.index', compact('pasien'));
     }
 
     public function create()

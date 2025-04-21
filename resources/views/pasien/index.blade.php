@@ -3,9 +3,17 @@
 @section('title', 'Daftar Pasien')
 
 @section('content')
-<div class="container">
-    <h1>Daftar Pasien</h1>
-    <a href="{{ route('pasien.create') }}" class="btn btn-primary mb-3">Tambah Pasien</a>
+<div>
+    <div class="row mb-3 align-items-center">
+        <div class="col">
+            <h1 class="h3 text-gray-800 mb-0">Daftar Pasien</h1>
+        </div>
+        <div class="col-auto">
+            <a href="{{ route('pasien.create') }}" class="btn btn-primary">Tambah Pasien</a>
+        </div>
+    </div>
+    <div class="card">
+
     <table class="table">
         <thead>
             <tr>
@@ -42,5 +50,6 @@
             @endforeach
         </tbody>
     </table>
+    </div>
 </div>
 @endsection
