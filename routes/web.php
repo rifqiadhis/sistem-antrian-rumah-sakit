@@ -25,3 +25,7 @@ Route::resource('pasien', PasienController::class);
 Route::resource('dokter', DokterController::class);
 Route::resource('jadwal_praktek', JadwalPraktekController::class);
 Route::resource('antrian', AntrianController::class);
+
+Route::get('/pendaftaran-ktp', function () {
+    return 'Selamat datang di pendaftaran KTP Online. Silakan isi data diri Anda.';
+})->middleware('check.age');
