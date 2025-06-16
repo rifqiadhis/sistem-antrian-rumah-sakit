@@ -5,6 +5,7 @@ use App\Http\Controllers\PasienController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\JadwalPraktekController;
 use App\Http\Controllers\AntrianController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,6 @@ Route::resource('antrian', AntrianController::class);
 Route::get('/pendaftaran-ktp', function () {
     return 'Selamat datang di pendaftaran KTP Online. Silakan isi data diri Anda.';
 })->middleware('check.age');
+
+Route::get('/upload', [ImageController::class, 'create']);
+Route::post('/upload', [ImageController::class, 'store'])->name('image.upload');
