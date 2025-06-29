@@ -34,13 +34,25 @@ class PasienController extends Controller
         return redirect()->route('pasien.index')->with('success', 'Pasien berhasil ditambahkan.');
     }
 
-    public function show(Pasien $pasien)
+    public function show($id)
     {
+        try {
+            $pasien = Pasien::findOrFail($id);
+        } catch (\Exception $e) {
+            return redirect()->route('pasien.index')->with('error', 'Pasien tidak ditemukan.');
+        }
+
         return view('pasien.show', compact('pasien'));
     }
 
-    public function edit(Pasien $pasien)
+    public function edit($id)
     {
+        try {
+            $pasien = Pasien::findOrFail($id);
+        } catch (\Exception $e) {
+            return redirect()->route('pasien.index')->with('error', 'Pasien tidak ditemukan.');
+        }
+
         return view('pasien.edit', compact('pasien'));
     }
 
