@@ -17,6 +17,16 @@ class Pasien extends Model
         'nomor_telepon',
         'email',
         'tanggal_lahir',
-        'jenis_kelamin'
+        'jenis_kelamin',
+        'foto_profil'
     ];
+
+    protected $casts = [
+        'tanggal_lahir' => 'date',
+    ];
+
+    public function antrians()
+    {
+        return $this->hasMany(Antrian::class, 'pasien_id', 'id');
+    }
 }

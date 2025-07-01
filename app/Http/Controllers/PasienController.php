@@ -9,7 +9,7 @@ class PasienController extends Controller
 {
     public function index()
     {
-        $pasien = Pasien::all();
+        $pasien = Pasien::latest()->paginate(10); 
         return view('pasien.index', compact('pasien'));
     }
 

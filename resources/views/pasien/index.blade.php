@@ -16,12 +16,16 @@
         <div class="alert alert-danger">
             {{ session('error') }}
         </div>
+    @elseif (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
     @endif
     <div class="card">
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>No</th>
                     <th>Nama</th>
                     <th>Alamat</th>
                     <th>Nomor Telepon</th>
@@ -32,9 +36,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($pasien as $p)
+                @forelse($pasien as $p)
                 <tr>
-                    <td>{{ $p->id }}</td>
+                    <td>{{ $pasien->firstItem() + $loop->index }}</td>
                     <td>{{ $p->nama }}</td>
                     <td>{{ $p->alamat }}</td>
                     <td>{{ $p->nomor_telepon }}</td>
@@ -42,18 +46,26 @@
                     <td>{{ $p->tanggal_lahir }}</td>
                     <td>{{ $p->jenis_kelamin }}</td>
                     <td>
-                        <a href="{{ route('pasien.show', $p->id) }}" class="btn btn-info">Detail</a>
-                        <a href="{{ route('pasien.edit', $p->id) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('pasien.show', $p->id) }}" class="btn btn-info btn-sm">Detail</a>
+                        <a href="{{ route('pasien.edit', $p->id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <form action="{{ route('pasien.destroy', $p->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Hapus</button>
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>
                         </form>
                     </td>
                 </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="8" class="text-center">Data Pasien belum tersedia.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
+    </div>
+
+    <div class="mt-3">
+        {!! $pasien->links() !!}
     </div>
 </div>
 @endsection

@@ -14,6 +14,12 @@ return [
     |
     */
 
+    'whapi' => [
+        'url' => env('WHAPI_URL'),
+        'key' => env('WHAPI_API_KEY'),
+        'manager_number' => env('WHAPI_MANAGER_NUMBER'),
+    ],
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),

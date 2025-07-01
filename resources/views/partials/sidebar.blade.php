@@ -10,9 +10,21 @@
     <hr class="sidebar-divider my-0">
     <!-- Nav Item - Pasien -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/pasien') }}">
+        <a class="nav-link" href="{{ url('/admin/pasien') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Pasien</span>
+        </a>
+        <a class="nav-link" href="{{ url('/admin/dokter') }}">
+            <i class="fas fa-fw fa-user-md"></i>
+            <span>Dokter</span>
+        </a>
+        <a class="nav-link" href="{{ url('/admin/jadwal-praktek') }}">
+            <i class="fas fa-fw fa-calendar-alt"></i>
+            <span>Jadwal Praktek</span>
+        </a>
+        <a class="nav-link" href="{{ url('/admin/antrian') }}">
+            <i class="fas fa-fw fa-list-alt"></i>
+            <span>Antrian</span>
         </a>
     </li>
     <!-- Divider -->
